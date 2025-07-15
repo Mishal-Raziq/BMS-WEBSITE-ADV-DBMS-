@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Banking System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background:url(branches.jpg);
+      background-size:center;
+    }
+
+    .register-header {
+      background-color: #4d0080;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .register-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .register-header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .register-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .register-card h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #310080;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .password-strength {
+      margin-top: 5px;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .strength-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .strength-text {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      color: #666;
+    }
+
+    .btn-register {
+      margin-top: 30px;
+      padding: 12px;
+      background-color: #4b0080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-register:hover {
+      background-color: #6b00b3;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    .login-link a {
+      color: #370080;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="register-header">
+    <div class="container">
+      <h1><i class="fas fa-university"></i> Banking System</h1>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="register-main">
+    <div class="form-container">
+      <div class="register-card">
+        <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+        
+        <form id="registerForm" action="register_process.php" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name"><i class="fas fa-user"></i> Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email"><i class="fas fa-envelope"></i> Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone"><i class="fas fa-phone"></i> Phone</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="address"><i class="fas fa-map-marker-alt"></i> Address</label>
+              <textarea id="address" name="address" rows="2" required></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="password"><i class="fas fa-lock"></i> Password</label>
+              <div style="position: relative;">
+  <input type="password" id="password" name="password" required minlength="8" style="padding-right: 35px;">
+  <i class="far fa-eye" id="togglePassword" style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+</div>
+
+              <div class="password-strength">
+                <span class="strength-bar"></span>
+              </div>
+              <span class="strength-text"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="confirm_password"><i class="fas fa-lock"></i> Confirm Password</label>
+              <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-register">
+            <i class="fas fa-user-plus"></i> Register
+          </button>
+          
+          <p class="login-link">
+            Already have an account? <a href="login.html">Login here</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('password').addEventListener('input', function() {
+      const password = this.value;
+      const strengthBar = document.querySelector('.strength-bar');
+      const strengthText = document.querySelector('.strength-text');
+      
+      let strength = 0;
+      if (password.length >= 8) strength += 1;
+      if (password.match(/[a-z]/)) strength += 1;
+      if (password.match(/[A-Z]/)) strength += 1;
+      if (password.match(/[0-9]/)) strength += 1;
+      if (password.match(/[^a-zA-Z0-9]/)) strength += 1;
+      
+      strengthBar.style.width = (strength * 20) + '%';
+      const colors = ['#ff0000', '#ff5a00', '#ffb700', '#b4ff00', '#00ff00'];
+      const texts = ['Very Weak', 'Weak', 'Medium', 'Strong', 'Very Strong'];
+      strengthBar.style.backgroundColor = colors[strength - 1];
+      strengthText.textContent = texts[strength - 1] || '';
+      document.getElementById("togglePassword").addEventListener("click", function () {
+  const passwordField = document.getElementById("password");
+  const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+  passwordField.setAttribute("type", type);
+  this.classList.toggle("fa-eye");
+  this.classList.toggle("fa-eye-slash");
+});
+
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm_password').value;
+      
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('Passwords do not match!');
+        return false;
+      }
+      return true;
+    });
+  </script>
+</body>
+</html>
