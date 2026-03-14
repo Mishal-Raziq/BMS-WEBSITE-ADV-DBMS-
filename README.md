@@ -175,32 +175,32 @@ http://localhost/BMS-WEBSITE-ADV-DBMS-/
 
 ## 🏠 Home Page
 
-![Home Page](image.jpg)
+![Home Page](image1.jpg)
 
 ---
 
 ## 🔐 Login Page
 
-![Login Page](photo.jpg)
+![Login Page](photo1.jpg)
 
 ---
 
 ## 📝 Registration Page
 
-![Register Page](picture.jpg)
+![Register Page](picture1.jpg)
 
 ---
 
 ## 💳 Transactions Page
 
-![Transactions](transactions.jpg)
+![Transactions](transactions1.jpg)
 
 ---
 
 
 ## 🏦 Branch Management
 
-![Branches](branches.jpg)
+![Branches](branches1.jpg)
 
 ---*Note: Only selected screenshots are included here. The project contains additional features and pages not shown above.*
 
